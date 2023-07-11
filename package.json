@@ -10,11 +10,13 @@
   "categories": [
     "Other"
   ],
-  "main": "./dist/extension.js",
+  "main": "./dist/index.js",
   "engines": {
     "vscode": "^1.80.0"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage"
+  ],
   "contributes": {
     "commands": [
       {
