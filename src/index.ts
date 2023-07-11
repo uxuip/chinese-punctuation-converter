@@ -1,5 +1,5 @@
 import * as vscode from 'vscode'
-import { convertPunctuation, isChinesePunctuation } from './converter'
+import { convertPunctuation, includeRegex, isChinesePunctuation } from './converter'
 
 export function activate() {
   vscode.workspace.onDidChangeTextDocument(async (changeEvent) => {
@@ -10,12 +10,23 @@ export function activate() {
       return
 
     contentChanges.forEach((change) => {
-      if (change.text.length > 1 || !isChinesePunctuation(change.text))
+      const prevChar = editor.document.getText(
+        new vscode.Range(
+          change.range.start,
+          new vscode.Position(change.range.start.line, change.range.start.character - 1),
+        ),
+      )
+      if (change.text.length > 1 || !isChinesePunctuation(change.text) || !includeRegex.test(prevChar))
         return
 
       editor.edit((editBuilder) => {
-        const end = new vscode.Position(change.range.start.line, change.range.start.character + 1)
-        editBuilder.replace(new vscode.Range(change.range.start, end), convertPunctuation(change.text))
+        editBuilder.replace(
+          new vscode.Range(
+            change.range.start,
+            new vscode.Position(change.range.start.line, change.range.start.character + 1),
+          ),
+          convertPunctuation(change.text),
+        )
       })
     })
   })

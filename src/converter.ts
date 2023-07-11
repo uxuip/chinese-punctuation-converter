@@ -33,6 +33,8 @@ const punctuationMap: Record<string, string> = {
   '】': ']',
 }
 
+export const includeRegex = /[.,?!;:(){}[\]<>\w]/
+
 export function isChinesePunctuation(char: string) {
   return !!punctuationMap[char]
 }
