@@ -1,0 +1,48 @@
+{
+  "publisher": "uxuip",
+  "name": "chinese-punctuation-converter",
+  "displayName": "Chinese Punctuation Converter",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@8.6.5",
+  "description": "",
+  "license": "MIT",
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "chinese-punctuation-converter.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "dev": "tsc -watch -p ./",
+    "build": "tsc -p ./",
+    "pretest": "pnpm run build && pnpm run lint",
+    "lint": "eslint .",
+    "test": "node ./dist/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "@types/vscode": "^1.80.0",
+    "@uxuip/eslint-config-ts": "^0.1.7",
+    "@vscode/test-electron": "^2.3.2",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3"
+  },
+  "eslintConfig": {
+    "extends": "@uxuip/ts"
+  }
+}
