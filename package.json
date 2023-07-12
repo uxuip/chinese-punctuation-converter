@@ -2,7 +2,7 @@
   "publisher": "uxuip",
   "name": "chinese-punctuation-converter",
   "displayName": "Chinese Punctuation Converter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "packageManager": "pnpm@8.6.5",
   "description": "在输入时，根据条件匹配，将中文标点符号转换为英文标点符号",
