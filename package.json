@@ -24,13 +24,13 @@
   ],
   "contributes": {},
   "scripts": {
-    "dev": "tsc -watch -p ./",
-    "build": "tsc -p ./",
-    "pretest": "pnpm run build && pnpm run lint",
+    "dev": "tsc -watch",
+    "build": "tsc",
+    "pretest": "pnpm build && pnpm lint",
     "lint": "eslint .",
     "test": "node ./dist/test/runTest.js",
-    "release": "vsce publish --no-dependencies",
-    "prerelease": "vsce publish --no-dependencies --pre-release"
+    "release": "pnpm build && vsce publish --no-dependencies",
+    "prerelease": "pnpm build && vsce publish --no-dependencies --pre-release"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
