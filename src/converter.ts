@@ -1,42 +1,34 @@
 const punctuationMap: Record<string, string> = {
-  // 逗号
   '，': ',',
-  // 句号
   '。': '.',
-  // 问号
   '？': '?',
-  // 顿号
   '、': ',',
-  // 冒号
   '：': ':',
-  // 分好
   '；': ';',
-  // 感叹号
   '！': '!',
-  // 双引号
   '“': '"',
   '”': '"',
-  // 单引号
   '‘': '\'',
   '’': '\'',
-  // 圆括号
   '（': '(',
   '）': ')',
-  // 花括号
   '｛': '{',
   '｝': '}',
-  // 尖括号
   '《': '<',
   '》': '>',
-  // 方括号
   '【': '[',
   '】': ']',
+  '·': '`',
+}
+const chinesePunctuationList = Object.keys(punctuationMap)
+const englishPunctuationList = Object.values(punctuationMap)
+
+export function validCharacter(char: string) {
+  return englishPunctuationList.includes(char) || /\w/.test(char)
 }
 
-export const matchRegex = /[.,?!;:'(){}[\]<>\w]/
-
 export function isChinesePunctuation(char: string) {
-  return !!punctuationMap[char]
+  return chinesePunctuationList.includes(char)
 }
 
 export function convertPunctuation(char: string) {
