@@ -26,11 +26,11 @@
   "scripts": {
     "dev": "tsc -watch",
     "build": "tsc",
-    "pretest": "pnpm build && pnpm lint",
     "lint": "eslint .",
+    "pretest": "pnpm build && pnpm lint",
     "test": "node ./dist/test/runTest.js",
     "release": "pnpm build && vsce publish --no-dependencies",
-    "prerelease": "pnpm build && vsce publish --no-dependencies --pre-release"
+    "release:pre": "pnpm build && vsce publish --no-dependencies --pre-release"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
