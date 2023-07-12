@@ -22,14 +22,7 @@
   "activationEvents": [
     "onLanguage"
   ],
-  "contributes": {
-    "commands": [
-      {
-        "command": "chinese-punctuation-converter.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
+  "contributes": {},
   "scripts": {
     "dev": "tsc -watch -p ./",
     "build": "tsc -p ./",
