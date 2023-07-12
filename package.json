@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@8.6.5",
-  "description": "",
+  "description": "在输入时，根据条件匹配，将中文标点符号转换为英文标点符号",
   "license": "MIT",
   "repository": {
     "type": "git",
